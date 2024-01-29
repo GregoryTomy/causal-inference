@@ -5,3 +5,6 @@ This repository features a collection of projects for APPM 6900: Independent Stu
 ## Projects
 
 1. [Estimating profitability of discounts.](estimating_profitability_of_discounts)
+
+
+The project closely follows the excellent course offered by [Matheus Facure.](https://matheusfacure.github.io)
