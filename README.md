@@ -18,7 +18,7 @@ $$
 Leveraged linear regression to adjust for bias, improcing the quality and reliablity of the the data analysis.
 
 Before debiasing and denoising
-![2](images/pre_debiasing.png)
+![2](images/pre_debiasing.jpg)
 
 After debiasing and denoising
 ![](images/post_debiasing.jpg)
