@@ -41,4 +41,6 @@ Utilized the Synthetic Control Method to construct a counterfactual scenario usi
 
 ![](images/synthetic_control.jpg)
 
+We see the profits for MG decreasing after the intervention which suggests that the effect of discounts on profit is negative.
+
 The project closely follows the excellent course offered by [Matheus Facure.](https://matheusfacure.github.io)
