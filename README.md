@@ -18,10 +18,10 @@ $$
 Leveraged linear regression to adjust for bias, improcing the quality and reliablity of the the data analysis.
 
 Before debiasing and denoising
-![2](images/pre_debiasing.jpg)
+![2](images/pre_debiasing.png)
 
 After debiasing and denoising
-![](images/post_debiasing.jpg)
+![](images/post_debiasing.png)
 
 We see that the customers with high residualized discounts no longer have high sales_prediction_bins. The regression adjustment has made the residual discount seem as good as randomly assigned.
 
