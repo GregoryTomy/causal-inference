@@ -14,12 +14,31 @@ $$
 
 ## Techniques
 
-1. [Bias Adjustment Using Linear Regression.](bias_adjustment.ipynb)
+1. [Bias Adjustment Using Linear Regression](bias_adjustment.ipynb):
 Leveraged linear regression to adjust for bias, improcing the quality and reliablity of the the data analysis.
 
-2. [Regression Discontinuity Design](rdd.ipynb)
+Before debiasing and denoising
+![2](images/pre_debiasing.png)
+
+After debiasing and denoising
+![](images/post_debiasing.jpg)
+
+We see that the customers with high residualized discounts no longer have high sales_prediction_bins. The regression adjustment has made the residual discount seem as good as randomly assigned.
+
+
+2. [Regression Discontinuity Design](rdd.ipynb):
 Used regression discontinuity design (RDD) as a form of natural experiment as an alternative to A/B testing. RDD measures treatment effects at points of discontinuity to get an idea of the effectiveness of a program without needing to rigorously A/B test it.
 
-The project closely follows the excellent course offered by [Matheus Facure.](https://matheusfacure.github.io)
+![rdd_kernel](images/rdd_kernel.jpg)
 
-3. [Difference in Differences]
+3. [Difference in Differences](difference_in_differences.ipynb):
+Employed Difference-in-Differences (DiD) methodology to evaluate the impact of policy changes or interventions over time by comparing the differences in outcomes before and after the treatment across treated and control groups.
+
+![](images/did.jpg)
+
+4. [Synthetic Control](difference_in_differences.ipynb)
+Utilized the Synthetic Control Method to construct a counterfactual scenario using a weighted combination of control units that closely resemble the treated unit(s) before the intervention.
+
+![](images/synthetic_control.jpg)
+
+The project closely follows the excellent course offered by [Matheus Facure.](https://matheusfacure.github.io)
