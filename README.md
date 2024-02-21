@@ -34,12 +34,12 @@ Used regression discontinuity design (RDD) as a form of natural experiment as an
 3. [Difference in Differences](difference_in_differences.ipynb):
 Employed Difference-in-Differences (DiD) methodology to evaluate the impact of policy changes or interventions over time by comparing the differences in outcomes before and after the treatment across treated and control groups.
 
-![](images/did.jpg)
+![](images/did.png)
 
 4. [Synthetic Control](difference_in_differences.ipynb)
 Utilized the Synthetic Control Method to construct a counterfactual scenario using a weighted combination of control units that closely resemble the treated unit(s) before the intervention.
 
-![](images/synthetic_control.jpg)
+![](images/synthetic_control.png)
 
 We see the profits for MG decreasing after the intervention which suggests that the effect of discounts on profit is negative.
 
