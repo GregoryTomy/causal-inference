@@ -29,7 +29,7 @@ We see that the customers with high residualized discounts no longer have high s
 2. [Regression Discontinuity Design](rdd.ipynb):
 Used regression discontinuity design (RDD) as a form of natural experiment as an alternative to A/B testing. RDD measures treatment effects at points of discontinuity to get an idea of the effectiveness of a program without needing to rigorously A/B test it.
 
-![rdd_kernel](images/rdd_kernel.jpg)
+![rdd_kernel](images/rdd_kernel.png)
 
 3. [Difference in Differences](difference_in_differences.ipynb):
 Employed Difference-in-Differences (DiD) methodology to evaluate the impact of policy changes or interventions over time by comparing the differences in outcomes before and after the treatment across treated and control groups.
