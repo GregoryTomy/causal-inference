@@ -29,46 +29,34 @@ Analysis of the cumulative elasticity curve, derived from sorting customers by t
 1. [Bias Adjustment Using Linear Regression](1_bias_adjustment.ipynb):
 Leveraged linear regression to adjust for bias, improving the quality and reliablity of the the data analysis.
 
-Before debiasing and denoising
-<p align="center">
-<img src="images/pre_debiasing.png" width="600">
-</p>
+![](images/pre_debiasing.png)
 
-After debiasing and denoising
-<p align="center">
-<img src="images/post_debiasing.png" width="600">
-</p>
-
+![](images/post_debiasing.png)
 We see that the customers with high residualized discounts no longer have high sales_prediction_bins. The regression adjustment has made the residual discount seem as good as randomly assigned.
 
 
 2. [Regression Discontinuity Design](2_rdd.ipynb):
 Used regression discontinuity design (RDD) as a form of natural experiment as an alternative to A/B testing. RDD measures treatment effects at points of discontinuity to get an idea of the effectiveness of a program without needing to rigorously A/B test it.
 
-<p align="center">
-<img src="images/rdd_kernel.png" width="600">
-</p>
+![](images/rdd_kernel.png)
 
 3. [Difference in Differences](3_diff_in_diff.ipynb):
 Employed Difference-in-Differences (DiD) methodology to evaluate the impact of policy changes or interventions over time by comparing the differences in outcomes before and after the treatment across treated and control groups.
 
-<p align="center">
-<img src="images/did.png" width="600">
-</p>
+![](images/did.png)
 
 4. [Synthetic Control](3_diff_in_diff.ipynb):
 Utilized the Synthetic Control Method to construct a counterfactual scenario using a weighted combination of control units that closely resemble the treated unit(s) before the intervention.
 
-<p align="center">
-<img src="images/synthetic_control.png" width="600">
-</p>
+
+![](images/synthetic_control.png)
 
 5. [Double/Debiased Machine Learning](5_double_ml.ipynb):
 Implemented Double/Debiased Machine Learning (DML) leveraging LightGBM to control to refine causal estimate. 
 
-<p align="center">
-<img src="images/double_ml_ate.png" width="600">
-</p>
+
+
+![](images/double_ml_ate.png)
 
 ## Initial Findings
 
@@ -86,9 +74,7 @@ The company currently applies discounts across the board, leading to an overall 
 ### Causal Model for Personalization
 The Double/Debiased ML model was used to create a score to segment the customers. We compare its performance against a simple Age based segmentation.
 
-<p align="center">
-<img src="images/double_ml.png" width="600">
-</p>
+![](images/double_ml.png)
 
 #### Interpretation
 While Age is better at distinguishing customers with a high positive treatment effect (age curve starts out above our model's curve), our mode is clearly better to distinguish customers with a low and high treatment effects overall.
