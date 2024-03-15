@@ -27,13 +27,17 @@ Analysis of the cumulative elasticity curve, derived from sorting customers by t
 ## Techniques
 
 1. [Bias Adjustment Using Linear Regression](1_bias_adjustment.ipynb):
-Leveraged linear regression to adjust for bias, improcing the quality and reliablity of the the data analysis.
+Leveraged linear regression to adjust for bias, improving the quality and reliablity of the the data analysis.
 
 Before debiasing and denoising
-![2](images/pre_debiasing.png)
+<p align="center">
+<img src="images/pre_debiasing.png" width="600">
+</p>
 
 After debiasing and denoising
-![](images/post_debiasing.png)
+<p align="center">
+<img src="images/post_debiasing.png" width="600">
+</p>
 
 We see that the customers with high residualized discounts no longer have high sales_prediction_bins. The regression adjustment has made the residual discount seem as good as randomly assigned.
 
@@ -41,17 +45,23 @@ We see that the customers with high residualized discounts no longer have high s
 2. [Regression Discontinuity Design](2_rdd.ipynb):
 Used regression discontinuity design (RDD) as a form of natural experiment as an alternative to A/B testing. RDD measures treatment effects at points of discontinuity to get an idea of the effectiveness of a program without needing to rigorously A/B test it.
 
-![rdd_kernel](images/rdd_kernel.png)
+<p align="center">
+<img src="images/rdd_kernel.png" width="600">
+</p>
 
 3. [Difference in Differences](3_diff_in_diff.ipynb):
 Employed Difference-in-Differences (DiD) methodology to evaluate the impact of policy changes or interventions over time by comparing the differences in outcomes before and after the treatment across treated and control groups.
 
-![](images/did.png)
+<p align="center">
+<img src="images/did.png" width="600">
+</p>
 
 4. [Synthetic Control](3_diff_in_diff.ipynb):
 Utilized the Synthetic Control Method to construct a counterfactual scenario using a weighted combination of control units that closely resemble the treated unit(s) before the intervention.
 
-![](images/synthetic_control.png)
+<p align="center">
+<img src="images/synthetic_control.png" width="600">
+</p>
 
 5. [Double/Debiased Machine Learning](5_double_ml.ipynb):
 Implemented Double/Debiased Machine Learning (DML) leveraging LightGBM to control to refine causal estimate. 
@@ -66,15 +76,19 @@ Implemented Double/Debiased Machine Learning (DML) leveraging LightGBM to contro
 ## Personalization
 The company currently applies discounts across the board, leading to an overall decrease in profits. However, the possibility exists to enhance profitability by identifying customer subgroups that exhibit a positive response to discounts. The goal is to target discounts specifically to these groups to maintain or increase profits. 
 
-We found that Age-based segmentation resulted in a positive impact on profits within the 40 to 67 age group, suggesting targeted discounts could be beneficial here.
+<!-- We found that Age-based segmentation resulted in a positive impact on profits within the 40 to 67 age group, suggesting targeted discounts could be beneficial here.
 
-![](images/te_age.png)
+<p align="center">
+<img src="images/te_age.png" width="600">
+</p> -->
 
 
 ### Causal Model for Personalization
 The Double/Debiased ML model was used to create a score to segment the customers. We compare its performance against a simple Age based segmentation.
 
-![](images/double_ml.png)
+<p align="center">
+<img src="images/double_ml.png" width="600">
+</p>
 
 #### Interpretation
 While Age is better at distinguishing customers with a high positive treatment effect (age curve starts out above our model's curve), our mode is clearly better to distinguish customers with a low and high treatment effects overall.
