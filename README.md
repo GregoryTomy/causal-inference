@@ -16,13 +16,13 @@ A predictive machine learning model estimates future sales, guiding the distribu
 The objective is to determine the actual impact of these discount strategies and provide actionable insights for future initiatives.
 
 ## Result
-Initial analyses of the e-commerce company's discounting strategy indicated a detrimental effect on customer profitability. Subsequent refinement through Double/Debiased Machine Learning (DML) methods confirmed these findings, revealing a negative coefficient of 0.25—implying that each dollar increase in discount leads to a $0.25 decrease in profits.
+Initial analyses of the e-commerce company's discounting strategy indicated a negative effect on customer profitability. Subsequent refinement through Double/Debiased Machine Learning (DML) method confirmed these findings, revealing a negative coefficient of 0.25 — **implying that each dollar increase in discount leads to a $0.25 decrease in profits**.
 
 To address this, we employed DML to develop a model capable of estimating the heterogeneity in treatment effects or the Conditional Average Treatment Effect (CATE) across customers. This approach enabled us to generate a score that can effectively segment customers based on their predicted responsiveness to discounts.
 
 ![](images/double_ml_final_rec.png)
 
-Analysis of the cumulative elasticity curve, derived from sorting customers by their DML-predicted treatment effect, indicates that targeting the top 63% of customers could yield a positive treatment effect. However, to adopt a more cautious strategy, **we advise that the company offer discounts only to those customers whose treatment effect prediction falls above the 55th percentile**.** This targeted approach is designed to optimize the effectiveness of discounting strategies while safeguarding profit margins.
+Analysis of the cumulative elasticity curve, derived from sorting customers by their DML-predicted treatment effect, indicated that targeting the top 63% of customers could yield a positive treatment effect. However, to adopt a more cautious strategy, **we advise that the company offer discounts only to those customers whose treatment effect prediction falls above the 55th percentile**.** This targeted approach is designed to optimize the effectiveness of discounting strategies while safeguarding profit margins.
 
 ## Techniques
 
@@ -56,6 +56,9 @@ Utilized the Synthetic Control Method to construct a counterfactual scenario usi
 5. [Double/Debiased Machine Learning](5_double_ml.ipynb):
 Implemented Double/Debiased Machine Learning (DML) leveraging LightGBM to control to refine causal estimate. 
 
+<img src="images/double_ml_ate.png" width="600">
+
+
 ## Initial Findings
 
 
@@ -70,7 +73,7 @@ We found that Age-based segmentation resulted in a positive impact on profits wi
 ### Causal Model for Personalization
 The Double/Debiased ML model was used to create a score to segment the customers. We compare its performance against a simple Age based segmentation.
 
-1[](images/double_ml.png)
+![](images/double_ml.png)
 
 #### Interpretation
 While Age is better at distinguishing customers with a high positive treatment effect (age curve starts out above our model's curve), our mode is clearly better to distinguish customers with a low and high treatment effects overall.
