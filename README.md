@@ -1,9 +1,9 @@
-# Causal Inference - Optimize Discount Strategy for E-Commerce Business
+# Causal Inference: Optimize Discount Strategy for E-Commerce Business
 
-This repository is dedicated to applying causal inference techniques to real-world business challenges and is part of APPM 6900 Independent Study in Causal Inference at the University of Colorado, Boulder.
+>> This repository is dedicated to applying causal inference techniques to real-world business challenges and is part of APPM 6900 Independent Study in Causal Inference at the University of Colorado, Boulder.
 
 ## Business Case
-The project focuses on leveraging causal analysis to optimize discounting strategies for an e-commerce businesses, showcasing how to predict the impact of various actions on business outcomes and key performance indicators (KPIs).
+The project aims to refine the discount strategy of an e-commerce business through causal analysis. It evaluates how discounts influence sales and profitability by predicting the outcomes of different actions on key metrics.
 
 The company wishes to use discounts to boost sales and hence, profits. But while discounting does boost sales, in the long run, it has a direct negative impact on profits: whatever you give as a discount you don’t make as earnings. The e-commerce company states that each customer’s profitability is given as follows:
 
@@ -11,6 +11,18 @@ $$
 Profits_i = Sales_i * 0.05 - Discount_i
 $$
 
+A predictive machine learning model estimates future sales, guiding the distribution of discounts to customers. The business has experimented with targeted discounts, such as offering coupons to women on Mother's Day, and has tested increased discount rates in a specific state.
+
+The objective is to determine the actual impact of these discount strategies and provide actionable insights for future initiatives.
+
+## Result
+Initial analyses of the e-commerce company's discounting strategy indicated a detrimental effect on customer profitability. Subsequent refinement through Double/Debiased Machine Learning (DML) methods confirmed these findings, revealing a negative coefficient of 0.25—implying that each dollar increase in discount leads to a $0.25 decrease in profits.
+
+To address this, we employed DML to develop a model capable of estimating the heterogeneity in treatment effects or the Conditional Average Treatment Effect (CATE) across customers. This approach enabled us to generate a score that can effectively segment customers based on their predicted responsiveness to discounts.
+
+![](images/double_ml_final_rec.png)
+
+Analysis of the cumulative elasticity curve, derived from sorting customers by their DML-predicted treatment effect, indicates that targeting the top 63% of customers could yield a positive treatment effect. However, to adopt a more cautious strategy, **we advise that the company offer discounts only to those customers whose treatment effect prediction falls above the 55th percentile**.** This targeted approach is designed to optimize the effectiveness of discounting strategies while safeguarding profit margins.
 
 ## Techniques
 
@@ -36,31 +48,32 @@ Employed Difference-in-Differences (DiD) methodology to evaluate the impact of p
 
 ![](images/did.png)
 
-4. [Synthetic Control](3_diff_in_diff.ipynb)
+4. [Synthetic Control](3_diff_in_diff.ipynb):
 Utilized the Synthetic Control Method to construct a counterfactual scenario using a weighted combination of control units that closely resemble the treated unit(s) before the intervention.
 
 ![](images/synthetic_control.png)
 
->> We see the profits for MG decreasing after the intervention which suggests that the effect of discounts on profit is negative.
-
-5. [Double/Debiased Machine Learning](5_double_ml.ipynb)
+5. [Double/Debiased Machine Learning](5_double_ml.ipynb):
 Implemented Double/Debiased Machine Learning (DML) leveraging LightGBM to control to refine causal estimate. 
 
+## Initial Findings
 
 
 ## Personalization
-Currently, the company is giving discounts to **all** customers, which, on average, is resulting in less profits. However, this is not the only option - we might be able to find subgroups of customers where the causal effect is positive. If we can then give discounts to only those customers, the e-commerce company can still make money by giving discounts. 
+The company currently applies discounts across the board, leading to an overall decrease in profits. However, the possibility exists to enhance profitability by identifying customer subgroups that exhibit a positive response to discounts. The goal is to target discounts specifically to these groups to maintain or increase profits. 
 
-A great personalization strategy will find some way to segment the customers in such a way that they respond very differently to the treatment in each segment. The company currently employs a ML model that predicts sales and the company provides discounts based on sales prediction. Our work so far as shows that this has an average negative effect of profits. We check if there are segments with positive treatment effects
-
-![](images/te_ml_predictions.png)
-
-**Segmenting customers by the sales prediction model results in no segment where more discount leads to more profit** - the treatment effect is always negative. However, we found $Age$ to have a positive treatment effect in the 40 to 67 segment. 
+We found that Age-based segmentation resulted in a positive impact on profits within the 40 to 67 age group, suggesting targeted discounts could be beneficial here.
 
 ![](images/te_age.png)
 
-Finally, our random number segments resulted in treatment effect that varies around the average treatment effect.
 
+### Causal Model for Personalization
+The Double/Debiased ML model was used to create a score to segment the customers. We compare its performance against a simple Age based segmentation.
+
+1[](images/double_ml.png)
+
+#### Interpretation
+While Age is better at distinguishing customers with a high positive treatment effect (age curve starts out above our model's curve), our mode is clearly better to distinguish customers with a low and high treatment effects overall.
 
 
 The project closely follows the excellent course offered by [Matheus Facure.](https://matheusfacure.github.io)
