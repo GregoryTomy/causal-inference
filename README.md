@@ -56,8 +56,9 @@ Utilized the Synthetic Control Method to construct a counterfactual scenario usi
 5. [Double/Debiased Machine Learning](5_double_ml.ipynb):
 Implemented Double/Debiased Machine Learning (DML) leveraging LightGBM to control to refine causal estimate. 
 
+<p align="center">
 <img src="images/double_ml_ate.png" width="600">
-
+</p>
 
 ## Initial Findings
 
