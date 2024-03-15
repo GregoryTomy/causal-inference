@@ -1,6 +1,6 @@
-# Causal Inference: Optimize Discount Strategy for E-Commerce Business
+# Causal Inference: Optimizing Discount Strategy for E-Commerce Business
 
->> This repository focuses on the practical application of causal inference methodologies to address real-world business problems. It is associated with the APPM 6900 Independent Study (in Causal Inference) course, conducted at the University of Colorado, Boulder, under the guidance of (Dr. Brian Zaharatos)[https://www.colorado.edu/amath/brian-zaharatos].
+>> This repository focuses on the practical application of causal inference methodologies to address real-world business problems. It is associated with the APPM 6900 Independent Study (in Causal Inference) course, conducted at the University of Colorado, Boulder, under the guidance of [Dr. Brian Zaharatos](https://www.colorado.edu/amath/brian-zaharatos).
 
 ## Business Case
 The project aims to refine the discount strategy of an e-commerce business through causal analysis. It evaluates how discounts influence sales and profitability by predicting the outcomes of different actions on key metrics.
