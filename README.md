@@ -58,11 +58,21 @@ Implemented Double/Debiased Machine Learning (DML) leveraging LightGBM to contro
 
 ![](images/double_ml_ate.png)
 
-## Initial Findings
+## Analysis
 
+
+Our initial analysis revealed a slight positive correlation between discount rates and profit margins. However, it's critical to note that this correlation does not imply causation, largely due to the presence of a bias term. This bias suggests that customers likely to make larger purchases may receive higher discounts, indicating that the observed correlation might be overestimated. Further, the apparent profit difference between customers receiving high and low discounts could stem from factors other than the discounts themselves, such as age and sales prediction categories, which are not exchangeable.
+
+Our analysis identified age and sales predictions as confounders. Specifically, we observed a positive correlation between age and discount levels, suggesting older customers tend to receive larger discounts. This trend may reflect a causal relationship between age and profit, as older customers could have higher purchasing power, leading to increased sales and profits. Sales prediction is another confounder, with anticipated higher purchase volumes leading to larger discounts.
+
+![](images/causal_dag.png)
+
+We also explored data discontinuities related to customer tenure. The e-commerce company's policy of awarding discount bonuses to long-term customers, specifically after 20 months of patronage, presented an opportunity for a regression discontinuity design analysis. This approach revealed a negative treatment effect (TE) of -7.6. Further refinement using kernel weights confirmed the persistence of this negative effect.
+
+Additionally, our analysis covered promotional strategies like discount coupons issued to women on Mother's Day and aggressive discounting tested in the state of MG. Utilizing a difference-in-differences (DiD) analysis, we determined that the Mother's Day discount led to a $-4.77 treatment effect on profits. For the state of MG, constructing a synthetic control to estimate the TE revealed a similar negative impact of discounts on profit. 
 
 ## Personalization
-The company currently applies discounts across the board, leading to an overall decrease in profits. However, the possibility exists to enhance profitability by identifying customer subgroups that exhibit a positive response to discounts. The goal is to target discounts specifically to these groups to maintain or increase profits. 
+Given the observation of a negative average treatment effect from broad discount strategies, our analysis shifted towards the potential for profit enhancement through targeted discounting. The objective was to pinpoint customer segments demonstrating positive responses to discounts, thereby enabling the company to tailor discount strategies to these specific groups to either sustain or boost profitability.
 
 <!-- We found that Age-based segmentation resulted in a positive impact on profits within the 40 to 67 age group, suggesting targeted discounts could be beneficial here.
 
@@ -72,12 +82,13 @@ The company currently applies discounts across the board, leading to an overall 
 
 
 ### Causal Model for Personalization
-The Double/Debiased ML model was used to create a score to segment the customers. We compare its performance against a simple Age based segmentation.
+Using the Double/Debiased Machine Learning (DML) model, we developed a customer scoring system for segmentation, aiming to identify groups with a positive response to discounts. This method was compared against a simpler, age-based segmentation to assess its effectiveness.
 
 ![](images/double_ml.png)
 
 #### Interpretation
-While Age is better at distinguishing customers with a high positive treatment effect (age curve starts out above our model's curve), our mode is clearly better to distinguish customers with a low and high treatment effects overall.
+The age-based segmentation excelled in identifying customers with a high positive treatment effect, as the age curve initially started higher. However, our model proved better in differentiating between customers with low and high treatment effects across the board. This indicated that, while age served as a strong predictor for identifying high responders, our model offered a broader and more nuanced understanding of customer responses to discounts. Thus, it enabled the ability to tailor discount strategies effectively across a wider customer base.
 
+---
 
 The project closely follows the excellent course offered by [Matheus Facure.](https://matheusfacure.github.io)
