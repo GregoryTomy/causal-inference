@@ -91,4 +91,4 @@ The age-based segmentation excelled in identifying customers with a high positiv
 
 ---
 
-The project closely follows the excellent course offered by [Matheus Facure.](https://matheusfacure.github.io)
+The project closely follows the excellent course offered by [Matheus Facure.](https://matheusfacure.github.io/python-causality-handbook/landing-page.html)
